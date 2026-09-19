@@ -82,8 +82,9 @@ The focus is not on completing a list of SQL exercises. The repository is struct
 
 ```text
 Banking-Industry-Data-Analytics-MYSQL/
-├── Banking-Industry-Data-Analytics-Using-MySQL.sql
-└── README.md
+├── README.md
+└── sql/
+    └── banking_analytics_mysql.sql
 ```
 
 ## What This Project Demonstrates
