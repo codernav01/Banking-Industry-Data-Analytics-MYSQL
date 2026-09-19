@@ -1,109 +1,91 @@
-# Banking Industry Data Analytics Using MySQL
+# Banking Analytics — Customer, Transaction & Loan Analysis in MySQL
 
-This project simulates a **real-world banking system** and demonstrates **end-to-end data analytics using MySQL**. It covers everything from **database design to advanced SQL analysis**, helping derive meaningful business insights from banking data.
+## Project Overview
 
----
+This project uses a **simulated relational banking dataset** to demonstrate SQL-based analysis across customers, accounts, transactions, branches, and loans.
 
-## Objective
+The focus is not on completing a list of SQL exercises. The repository is structured around common analytical questions a banking or financial-services team could investigate: customer value, account activity, deposit balances, loan exposure, transaction behaviour, and branch performance.
 
-The goal of this project is to:
+## Business Questions
 
-- Analyze banking datasets including **customers, accounts, transactions, and loans**
-- Extract **actionable business insights** such as customer behavior, loan patterns, and transaction trends
-- Practice **real-world SQL analytics scenarios** used in the banking and finance industry
-- Build a **complete SQL project (Beginner → Advanced level)**
+- Which customers hold the highest account balances?
+- How are balances distributed across account types and branches?
+- Which customers are active based on transaction behaviour?
+- How much value flows through credits and debits?
+- Which customers currently hold approved loans?
+- How is approved-loan exposure distributed across branches and loan types?
+- How do customer transactions change over time?
+- Which accounts or customers should be segmented for deeper review?
 
----
+## Data Model
 
-## Tools & Technologies
+| Table | Purpose |
+|---|---|
+| `customers` | Customer demographics and account-open date |
+| `branches` | Branch location and identity |
+| `accounts` | Customer account type, balance, and branch |
+| `transactions` | Credit/debit activity by account |
+| `loans` | Loan type, amount, status, and term |
 
-- **Database:** MySQL  
-- **Language:** SQL  
+## SQL Techniques Demonstrated
 
-### Concepts Covered
+- relational joins
+- grouped aggregations
+- conditional aggregation
+- CTEs
+- window functions
+- `RANK()`
+- `LAG()`
+- running totals
+- stored procedures
+- user-defined functions
+- date calculations
+- reusable segmentation logic
 
-- Filtering & Aggregation  
-- Joins (INNER, LEFT, RIGHT)  
-- Window Functions (RANK, LAG, SUM OVER)  
-- Common Table Expressions (CTEs)  
-- Stored Procedures  
-- User Defined Functions (UDFs)  
+## Analytical Areas
 
----
+### Customer & account value
+- customers by geography
+- account mix
+- high- and low-balance customers
+- customer ranking by balance
+- customer-level transaction value
 
-## Database Schema
+### Transaction behaviour
+- transaction frequency
+- credit vs debit totals
+- running credit totals
+- previous-transaction comparison
+- activity based on the most recent date in the dataset
 
-The project is built using 5 core tables:
+### Loan analysis
+- approved-loan customers
+- loan amount by type
+- loan duration
+- EMI and interest calculations
+- loan-exposure segmentation
 
-- **Customers** → Customer details (name, gender, location, DOB)  
-- **Branches** → Bank branch information  
-- **Accounts** → Account type and balance details  
-- **Transactions** → Credit & debit history  
-- **Loans** → Loan amount, type, status, duration  
+### Branch performance
+- branch balances
+- customer counts
+- approved-loan customer counts
+- within-branch customer ranking
 
----
+## Important Methodology Notes
 
-## 📌 Key Analysis Performed
+- The dataset is **simulated and intentionally small**, so this project demonstrates SQL logic rather than production-scale banking analysis.
+- Account balance is a snapshot field; it is not reconstructed from transaction history.
+- The loan segmentation function is a **rule-based exposure band**, not a statistical credit-risk model.
+- “Recent activity” is measured relative to the latest transaction date available in the dataset so the analysis remains reproducible.
 
-- Customer segmentation based on gender and activity  
-- Account distribution by type and balance  
-- Identification of low-balance and high-value customers  
-- Transaction analysis (credit, debit, frequency)  
-- Loan analysis by type, duration, and approval status  
-- Branch-wise performance analysis  
-- Ranking customers based on account balance  
-- Running totals and previous transaction tracking  
+## Repository Structure
 
----
+```text
+Banking-Industry-Data-Analytics-MYSQL/
+├── Banking-Industry-Data-Analytics-Using-MySQL.sql
+└── README.md
+```
 
-## Advanced Business Insights
+## What This Project Demonstrates
 
-- Identified **high-value customers** contributing most to deposits  
-- Analyzed **loan distribution and approval trends**  
-- Detected **active vs inactive customers**  
-- Evaluated **branch-level performance**  
-- Classified customers based on **financial strength**  
-- Calculated **EMI and total loan cost (advanced financial analysis)**  
-- Built **loan risk classification model using SQL (UDF-based)**  
-
----
-
-## 📌 Project Structure (30 SQL Questions)
-
-This project contains **30 structured SQL problems**, covering:
-
-- **Q1–Q14:** Basic to Intermediate SQL (Filtering, Joins, Aggregation)  
-- **Q15–Q21:** Advanced SQL (Window Functions, CTEs)  
-- **Q22–Q24:** Stored Procedures  
-- **Q25–Q30:** User Defined Functions (UDFs)  
-
----
-
-## Advanced Features Implemented
-
-- 📌 EMI Calculation using financial formula  
-- 📌 Total Interest Calculation (Bank Profit Insight)  
-- 📌 Loan Risk Classification (High / Medium / Low)  
-- 📌 Real-world Banking Decision Logic  
-
----
-
-## Real-World Impact
-
-This project mimics how banks:
-
-- Analyze customer financial behavior  
-- Monitor loan performance and risks  
-- Track transaction patterns  
-- Make data-driven financial decisions  
-
----
-
-## Conclusion
-
-This project is a **complete SQL case study** that demonstrates how raw banking data can be transformed into **valuable business insights** using SQL.
-
-It is ideal for:
-- Data Analyst roles  
-- SQL interview preparation  
-- Portfolio projects  
+This repository demonstrates how a relational banking schema can be queried to move from raw operational tables to **customer, transaction, loan, and branch-level analytical views** using MySQL.
