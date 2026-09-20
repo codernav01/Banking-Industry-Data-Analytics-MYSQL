@@ -1,10 +1,16 @@
 # Banking Analytics — Customer, Transaction & Loan Analysis in MySQL
 
-## Project Overview
+> **SQL-focused portfolio project:** relational analysis across customers, accounts, transactions, branches, and loans using MySQL.
 
-This project uses a **simulated relational banking dataset** to demonstrate SQL-based analysis across customers, accounts, transactions, branches, and loans.
+## Recruiter Snapshot
 
-The focus is not on completing a list of SQL exercises. The repository is structured around common analytical questions a banking or financial-services team could investigate: customer value, account activity, deposit balances, loan exposure, transaction behaviour, and branch performance.
+| Area | Evidence |
+|---|---|
+| Data model | 5 related banking tables |
+| SQL | joins, CTEs, window functions, procedures, UDFs |
+| Analysis | customer value, transactions, loans, branch performance |
+| Scale | intentionally small simulated dataset |
+| Purpose | demonstrate SQL logic and analytical design, not production-scale banking analytics |
 
 ## Business Questions
 
@@ -21,17 +27,16 @@ The focus is not on completing a list of SQL exercises. The repository is struct
 
 | Table | Purpose |
 |---|---|
-| `customers` | Customer demographics and account-open date |
-| `branches` | Branch location and identity |
-| `accounts` | Customer account type, balance, and branch |
-| `transactions` | Credit/debit activity by account |
-| `loans` | Loan type, amount, status, and term |
+| `customers` | customer demographics and account-open date |
+| `branches` | branch identity and geography |
+| `accounts` | account type, balance, customer and branch |
+| `transactions` | credit/debit activity by account |
+| `loans` | loan type, amount, status and term |
 
 ## SQL Techniques Demonstrated
 
 - relational joins
-- grouped aggregations
-- conditional aggregation
+- grouped and conditional aggregation
 - CTEs
 - window functions
 - `RANK()`
@@ -42,41 +47,12 @@ The focus is not on completing a list of SQL exercises. The repository is struct
 - date calculations
 - reusable segmentation logic
 
-## Analytical Areas
-
-### Customer & account value
-- customers by geography
-- account mix
-- high- and low-balance customers
-- customer ranking by balance
-- customer-level transaction value
-
-### Transaction behaviour
-- transaction frequency
-- credit vs debit totals
-- running credit totals
-- previous-transaction comparison
-- activity based on the most recent date in the dataset
-
-### Loan analysis
-- approved-loan customers
-- loan amount by type
-- loan duration
-- EMI and interest calculations
-- loan-exposure segmentation
-
-### Branch performance
-- branch balances
-- customer counts
-- approved-loan customer counts
-- within-branch customer ranking
-
 ## Important Methodology Notes
 
-- The dataset is **simulated and intentionally small**, so this project demonstrates SQL logic rather than production-scale banking analysis.
-- Account balance is a snapshot field; it is not reconstructed from transaction history.
-- The loan segmentation function is a **rule-based exposure band**, not a statistical credit-risk model.
-- “Recent activity” is measured relative to the latest transaction date available in the dataset so the analysis remains reproducible.
+- The dataset is **simulated and intentionally small**.
+- Account balance is treated as a snapshot field rather than reconstructed from transaction history.
+- Loan segmentation is rule-based, not a statistical credit-risk model.
+- Recent activity is measured relative to the latest transaction date available in the dataset to keep the analysis reproducible.
 
 ## Repository Structure
 
@@ -87,6 +63,11 @@ Banking-Industry-Data-Analytics-MYSQL/
     └── banking_analytics_mysql.sql
 ```
 
+## How to Review
+
+**Recruiter:** use this project as evidence of SQL breadth and relational thinking.  
+**Technical reviewer:** inspect `sql/banking_analytics_mysql.sql` for the actual queries, procedures, functions, and window logic.
+
 ## What This Project Demonstrates
 
-This repository demonstrates how a relational banking schema can be queried to move from raw operational tables to **customer, transaction, loan, and branch-level analytical views** using MySQL.
+**Relational SQL + metric logic + reusable analytical query design.**
